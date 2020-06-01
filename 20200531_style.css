@@ -9,10 +9,15 @@ h2 {
     text-align: center;
 }
 
+li {
+    list-style-type: none;
+}    
+
 
 /*Small Screens 900px*/
 
-@media{(min-width:900px)
+@media{
+    (min-width:900px)
 
 /*These are the properties of the parent container*/
 
@@ -26,8 +31,6 @@ h2 {
     "main"
     "ft";
 }
-
-
 
 
 
@@ -47,7 +50,6 @@ header {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
-    #border-bottom: 2px solid #b0e0ea;
     box-shadow: 0px 2px lightgrey;
 }
 
@@ -98,8 +100,16 @@ nav li {
     grid-area: main;
     grid-column-start: 1;
     grid-row-start: auto;
+}
 
-    
+img {
+    width: 50%;
+    height: 50%;
+    align-content: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #post1, #post2, #post3, #post4 {
@@ -109,6 +119,7 @@ nav li {
     border: 1px solid lightgray;
     padding: 10px;
     text-align: start;
+    margin: 20px;
 }
 
 .container img {
@@ -117,11 +128,49 @@ nav li {
     
 }
 
+/*These are the section properties*/
+
+section {
+    display: grid;
+    grid-area: "main";
+    #background-color: lightcyan;
+    padding: 10px;
+    margin: 20px;
+}
+
+section p {
+    text-align: start;
+}
+
+.archive {
+    text-align: center;
+}
+
 /*These are the footer properties*/
 footer {
     grid-area: ft;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    #border-top: 2px solid #b0e0ea;
+    box-shadow: 0px 2px 0px 2px lightgrey;
+
+}
+
+footer img {
+    width: 10%;
+    height: 10%;
+}
+
+nav ul{
+    display: inline-flex;
+    align-items: center;
+}
+
+nav li {
+    padding-right: 2em;
+    padding-left: 2em;
+    
+}
 
 }
