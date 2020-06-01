@@ -12,7 +12,7 @@ h2 {
 
 /*Small Screens 900px*/
 
-@media(min-width:900px)
+@media{(min-width:900px)
 
 /*These are the properties of the parent container*/
 
