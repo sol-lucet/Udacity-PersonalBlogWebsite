@@ -5,19 +5,26 @@ body{
     text-align: start;
 }
 
-h2 {
+h1, h2 {
     text-align: center;
+    text-transform: uppercase;
 }
 
 li {
     list-style-type: none;
 }    
 
+header, footer {
+    color: teal;
+}
 
-/*Small Screens 900px*/
+a {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: rebeccapurple;
+}
 
-@media{
-    (min-width:900px)
+/*Small Screens: smaller than first breakpoint 600px */
 
 /*These are the properties of the parent container*/
 
@@ -25,25 +32,27 @@ li {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
-    row-gap: 20px;
+    gap: 20px;
     grid-template-areas:
     "hd"
     "main"
     "ft";
 }
 
-
-
 /*These are the header properties*/
-
 header {
-    #border-bottom: 2px solid #b0e0ea;
     grid-area: "hd";
+}
+
+header a {
+    color: teal;
+    text-transform: none;
+    text-decoration: none;
 }
 
 .header-menu {
     grid-column-start: 1;
-    grid-column-end: span col1;
+    grid-column-end: auto;
     grid-row-start: 1;
     grid-row-end: auto;
     display: flex;
@@ -53,23 +62,14 @@ header {
     box-shadow: 0px 2px lightgrey;
 }
 
+a header {
+    text-transform: unset;
+    color: teal;
+}
+
 header nav {
     grid-row-start: 1;
     grid-row-end: 2;
-}
-
-.title {
-    text-align: center;
-    #background-color: lightgray;
-    #height: 100%;
-    justify-content: center;
-    justify-self: center;
-    align-content: center;
-    border: 1px solid rgb(240, 230, 230);
-}
-
-.blog-subtitle {
-    color:darkgrey;
 }
 
 header button {
@@ -85,22 +85,38 @@ header button {
 nav ul{
     display: inline-flex;
     align-items: center;
+    overflow: hidden;
 }
 
 nav li {
     padding-right: 2em;
     padding-left: 2em;
     list-style-type: none;
+    text-align:center;
 }
 
 
-/*These are the main-content properties*/
-.container main-content {
-    display: grid;
-    grid-area: main;
-    grid-column-start: 1;
-    grid-row-start: auto;
+/*These are the main-content (article & section) properties*/
+
+.child-container {
+    grid-area: "main";
+    gap: 20px;
 }
+
+.title {
+    text-align: center;
+    justify-content: center;
+    justify-self: center;
+    align-content: center;
+    background-color: #f8f8f8;
+    color: black;
+}
+
+.blog-subtitle {
+    color:darkgrey;
+    text-transform: lowercase;
+}
+
 
 img {
     width: 50%;
@@ -112,49 +128,75 @@ img {
     margin-right: auto;
 }
 
-#post1, #post2, #post3, #post4 {
-    #display: grid;
-    grid-area: "main";
-    grid-column-start: 1;
-    border: 1px solid lightgray;
-    padding: 10px;
-    text-align: start;
-    margin: 20px;
-}
-
-.container img {
-    width: 50%;
-    height: 50%;
-    
-}
-
-/*These are the section properties*/
-
-section {
+.post-current {
     display: grid;
     grid-area: "main";
-    #background-color: lightcyan;
-    padding: 10px;
-    margin: 20px;
+    grid-column-start: 1;
+    text-align: start;
+    row-gap: 20px;
 }
 
-section p {
-    text-align: start;
+#post-1, #post-2, #post-3, #post-4 {
+    border: 1px solid lightgray;
+    padding: 30px;
+}
+
+article img {
+    width: 50%;
+    height: 50%;
 }
 
 .archive {
+    padding: 10px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#archived-posts {
+    text-align: start;
+    padding-left: 2.75em;
+}
+
+section nav li {
+    text-align: start;
+    position: absolute;
+}
+
+section h3 {
+    color: rebeccapurple;
+    text-emphasis: none;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+button {
+    border: none;
+    padding: 15px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: 1px solid darkgray;
+    margin: auto;
+}
+
+
+.outro {
     text-align: center;
+    border-top: 50px;
+    padding: 50px;
+    background-color: #f8f8f8;
 }
 
 /*These are the footer properties*/
-footer {
-    grid-area: ft;
+footer  {
+    grid-area: "ft";
+    grid-column-start: 1;
+    grid-row-start: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    #border-top: 2px solid #b0e0ea;
-    box-shadow: 0px 2px 0px 2px lightgrey;
-
+    justify-content: flex-end;
+    border-top: 1px solid lightgray;
 }
 
 footer img {
@@ -170,7 +212,154 @@ nav ul{
 nav li {
     padding-right: 2em;
     padding-left: 2em;
+}
+
+footer a {
+    color: teal;
+    text-transform: none;
+    text-decoration: none;
+}
+
+}
+
+/*Medium Screens 600px - 1000px*/
+
+@media {
+    (min-width: 600px) and (max-width:900px) 
+
+/*These are the properties of the parent container*/
+
+.parent-container {
+    display: grid;
+    grid-template-columns: repeat (2, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    grid-template-areas:
+    "hd"
+    "main"
+    "ft";
+}    
+
+/*These are the header properties*/
+header {
+    grid-area: "hd";
+}
+
+.header-menu {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    box-shadow: 0px 2px lightgrey;
+}
+
+
+/*These are the main-content (article & section) properties*/
+
+.child-container {
+    grid-area: "main";
+    display: grid;
+}
+
+img {
+    width: 30%;
+    height: 30%;
+    align-content: center;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.post-current {
+    display: grid;
+    grid-area: "main";
+}
+   
+
+#post-1 {
+    grid-column-start: 1;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#post-2 {
+    grid-column-start: 2;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#post-3 {
+    grid-column-start: 1;
+    grid-column-end: span col2-start;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+#post-4 {
+    grid-column-start: 2;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    border: 1px solid black;
+    padding: 20px;
+}
+
+
+.container img {
+    width: 30%;
+    height: 30%;
     
+}
+
+.archive {
+    display: grid;
+    grid-area: "main";
+    background-color: #f8f8f8;
+    padding: 10px;
+    position: relative;
+    border: 1px solid red;
+}
+
+
+section nav li {
+    text-align: start;
+    position: absolute;
+}
+
+section h3 {
+    color: rebeccapurple;
+    text-emphasis: none;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+button {
+    padding: 15px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: 1px solid darkgray;
+    margin: auto;
+}
+
+
+.outro {
+    text-align: center;
+    border-top: 50px;
+    padding: 50px;
 }
 
 }
