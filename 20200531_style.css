@@ -24,7 +24,8 @@ a {
     color: rebeccapurple;
 }
 
-/*Small Screens: smaller than first breakpoint 600px */
+
+/*Small Screens: smaller than first breakpoint 599px */
 
 /*These are the properties of the parent container*/
 
@@ -96,12 +97,14 @@ nav li {
 }
 
 
+
 /*These are the main-content (article & section) properties*/
 
 .child-container {
     grid-area: "main";
     gap: 20px;
-}
+}    
+
 
 .title {
     text-align: center;
@@ -118,22 +121,14 @@ nav li {
 }
 
 
-img {
-    width: 50%;
-    height: 50%;
-    align-content: center;
-    justify-content: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .post-current {
     display: grid;
     grid-area: "main";
     grid-column-start: 1;
+    grid-column-end: span 1;
     text-align: start;
     row-gap: 20px;
+    column-gap: 20px;
 }
 
 #post-1, #post-2, #post-3, #post-4 {
@@ -141,10 +136,32 @@ img {
     padding: 30px;
 }
 
-article img {
-    width: 50%;
-    height: 50%;
+
+#post-1 {
+    grid-column-start: 1;
+    grid-column-end: auto;
+    grid-row-start: auto;
+    grid-row-end: auto;
 }
+
+#post-1 img, #post-2 img, #post-3 img {
+    object-position: center;
+    object-fit: fill;
+    width: 250px;
+    height: 180px;
+}
+
+#post-1 img {
+    position: relative;
+}
+
+#post-4 img  {
+    object-position: center;
+    object-fit: fill;
+    width: 200px;
+    height: 280px;
+}
+
 
 .archive {
     padding: 10px;
@@ -220,18 +237,19 @@ footer a {
     text-decoration: none;
 }
 
-}
 
-/*Medium Screens 600px - 1000px*/
+
+/*Large and Medium Screens 600px - 2500px*/
 
 @media {
-    (min-width: 600px) and (max-width:900px) 
+    (min-width: 600px) and (max-width:2500px) 
 
 /*These are the properties of the parent container*/
 
+
 .parent-container {
     display: grid;
-    grid-template-columns: repeat (2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     gap: 20px;
     grid-template-areas:
@@ -258,6 +276,7 @@ header {
 }
 
 
+
 /*These are the main-content (article & section) properties*/
 
 .child-container {
@@ -265,9 +284,8 @@ header {
     display: grid;
 }
 
-img {
-    width: 30%;
-    height: 30%;
+.title img {
+    object-fit: cover;
     align-content: center;
     justify-content: center;
     display: block;
@@ -286,7 +304,6 @@ img {
     grid-column-end: auto;
     grid-row-start: auto;
     grid-row-end: auto;
-    border: 1px solid black;
     padding: 20px;
 }
 
@@ -295,7 +312,6 @@ img {
     grid-column-end: auto;
     grid-row-start: auto;
     grid-row-end: auto;
-    border: 1px solid black;
     padding: 20px;
 }
 
@@ -304,7 +320,6 @@ img {
     grid-column-end: span col2-start;
     grid-row-start: auto;
     grid-row-end: auto;
-    border: 1px solid black;
     padding: 20px;
 }
 
@@ -313,15 +328,26 @@ img {
     grid-column-end: auto;
     grid-row-start: auto;
     grid-row-end: auto;
-    border: 1px solid black;
     padding: 20px;
 }
 
+#post-1 img, #post-2 img, #post-3 img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: fill;
+    width: 250px;
+    height: 180px;
+}
 
-.container img {
-    width: 30%;
-    height: 30%;
-    
+#post-4 img  {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-position: center;
+    object-fit: fill;
+    width: 200px;
+    height: 280px;
 }
 
 .archive {
@@ -330,7 +356,6 @@ img {
     background-color: #f8f8f8;
     padding: 10px;
     position: relative;
-    border: 1px solid red;
 }
 
 
@@ -363,3 +388,6 @@ button {
 }
 
 }
+
+
+
