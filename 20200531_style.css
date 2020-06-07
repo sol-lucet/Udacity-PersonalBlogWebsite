@@ -25,7 +25,7 @@ a {
 }
 
 
-/*Small Screens: smaller than first breakpoint 599px */
+/*Small Screens: smaller than first breakpoint 375px */
 
 /*These are the properties of the parent container*/
 
@@ -93,7 +93,7 @@ nav li {
     padding-right: 2em;
     padding-left: 2em;
     list-style-type: none;
-    text-align:center;
+    text-align: center;
 }
 
 
@@ -125,7 +125,6 @@ nav li {
 
 
 .post-current {
-    display: grid;
     grid-area: "main";
     grid-template-columns: 1fr;
     grid-column-start: 1;
@@ -142,19 +141,35 @@ nav li {
     grid-column-end: auto;
 }
 
-
-#post-1 img, #post-2 img, #post-3 img {
-    object-position: center;
-    object-fit: fill;
-    width: 250px;
-    height: 180px;
+#post-1, #post-2, #post-3, #post-4 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: auto;
+    grid-row-end: auto;
+    padding: 20px;
 }
 
-#post-4 img  {
-    object-position: center;
+
+#post-1 img, #post-3 img {
     object-fit: fill;
-    width: 200px;
+    width: 300px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#post-2 img {
+    object-fit: fill;
+    width: 320px;
     height: 280px;
+}
+
+
+    
+#post-4 img  {
+    object-fit: fill;
+    width: 300px;
+    height: 380px;
 }
 
 
@@ -232,12 +247,12 @@ footer a {
     text-decoration: none;
 }
 
+}
 
-
-/*Large and Medium Screens 600px - 2500px*/
+/*Large and Medium Screens 376px - 760px*/
 
 @media {
-    (min-width: 600px) and (max-width:2500px) 
+    (min-width: 376px) and (max-width:760px) 
 
 /*These are the properties of the parent container*/
 
@@ -315,7 +330,7 @@ header {
 
 #post-3 {
     grid-column-start: 1;
-    grid-column-end: span col2-start;
+    grid-column-end: auto;
     grid-row-start: auto;
     grid-row-end: auto;
     padding: 20px;
