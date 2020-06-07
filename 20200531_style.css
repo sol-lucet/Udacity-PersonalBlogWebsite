@@ -103,6 +103,9 @@ nav li {
 .child-container {
     grid-area: "main";
     gap: 20px;
+    grid-template-columns: 1fr;
+    grid-column-start: 1;
+    grid-column-end: auto;
 }    
 
 
@@ -124,8 +127,9 @@ nav li {
 .post-current {
     display: grid;
     grid-area: "main";
+    grid-template-columns: 1fr;
     grid-column-start: 1;
-    grid-column-end: span 1;
+    grid-column-end: auto;
     text-align: start;
     row-gap: 20px;
     column-gap: 20px;
@@ -134,25 +138,16 @@ nav li {
 #post-1, #post-2, #post-3, #post-4 {
     border: 1px solid lightgray;
     padding: 30px;
-}
-
-
-#post-1 {
     grid-column-start: 1;
     grid-column-end: auto;
-    grid-row-start: auto;
-    grid-row-end: auto;
 }
+
 
 #post-1 img, #post-2 img, #post-3 img {
     object-position: center;
     object-fit: fill;
     width: 250px;
     height: 180px;
-}
-
-#post-1 img {
-    position: relative;
 }
 
 #post-4 img  {
@@ -296,6 +291,9 @@ header {
 .post-current {
     display: grid;
     grid-area: "main";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+
 }
    
 
